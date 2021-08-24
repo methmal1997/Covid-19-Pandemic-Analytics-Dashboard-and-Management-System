@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Covid-19</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #6600cc;">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-1 mb-2 me-lg-auto justify-content-center mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{%url 'index2'%}"><h5>Home</h5></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="{%url 'dashboard'%}"><h5>Covid-19 Dashboard</h5>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="navbar-brand nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Situations</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="">Local Situations</a></li>
+                            <li><a class="dropdown-item" href="{%url 'world'%}">Global Situations</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="navbar-brand nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            News feeds
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{%url 'lnews'%}">Local News</a></li>
+                            <li><a class="dropdown-item" href="{%url 'news'%}">Global News</a></li>
+                        </ul>
+                    </li>
+                        <li class="nav-item dropdown">
+                        <a class="navbar-brand nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Guidance
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{%url 'guide'%}">Covid-19 guidelines</a></li>
+                            <li><a class="dropdown-item" href="{%url 'info'%}">Information for General Public</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="navbar-brand nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Hospital
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{%url 'hospital'%}">Hospital & Quarantine center</a></li>
+                            <li><a class="dropdown-item" href="{%url 'vaccination'%}">Vaccination</a></li>
+                            <li><a class="dropdown-item" href="{%url 'covidtest'%}">Covid testing</a></li>
+                            <li><a class="dropdown-item" href="{%url 'fund'%}">Covid fund</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <div class="btn-group float-right me-2" role="group" aria-label="Basic example">
+                    <a href="tel:1999" class="btn btn-outline-light hotline-no"><i class="fas fa-phone-alt"></i>
+                        Suwasariya&nbsp;&nbsp;|&nbsp;&nbsp;1999</a>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+</header>
+<!--- --------------------------------------------------------------------------------------------------------- -->
+
+<main>
+    {% load static %}
+    <div class="mt-5">
+        <div class="container mt-5">
+            <div class="px-3 text-center mt-5 pt-5">
+
+                <h1 style="color:#6600cc" class="display-5 fw-bold">Covid-19 Pandemic Analytics Dashboard and Management
+                    System</h1>
+                <i>developed by uoc fos team</i>
+            </div>
+            <div id="carouselExampleDark" class="carousel carousel-dark slide " data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="shadow p-3 mb-5 bg-body rounded">
+                            <img src="{%static 'assets/img/n1.png'%}" class="d-block w-100" height="900px" alt="..."
+                                 style="opacity: 0.9;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ------------------------------- --begin from here ------------------------------------------ -->
+        <div class="container">
+
+
+            <div class="row mb-5">
+                <div class="col-md-6">
+                    <div class="card text-dark bg-light mb-3 shadow p-3 mb-5 bg-body rounded">
+                        <div class="card-body">
+                            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExampleIndicators"
+                                            data-bs-slide-to="0"
+                                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators"
+                                            data-bs-slide-to="1"
+                                            aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleIndicators"
+                                            data-bs-slide-to="2"
+                                            aria-label="Slide 3"></button>
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="{%static 'assets/img/g1.jpg'%}" class="d-block w-100 card-img-top"
+                                             style="height:350px" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{%static 'assets/img/g2.jpg'%}" class="d-block w-100 card-img-top"
+                                             style="height:350px" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{%static 'assets/img/g4.jpg'%}" class="d-block w-100 card-img-top"
+                                             style="height:350px" alt="...">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button"
+                                        data-bs-target="#carouselExampleIndicators"
+                                        data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                        data-bs-target="#carouselExampleIndicators"
+                                        data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+
+                            <h5 class="card-title mt-2">Description</h5>
+                            <p class="card-text-center">The corona virus pandemic which initially reported from China in
+                                late December in 2019, started spreading around the world so fast in the beginning of
+                                the
+                                2020. The first corona virus infected person in Sri Lanka was reported on 27th January
+                                2020.</br>
+                                The pandemic directly effects badly not only health but all areas, mainly economy and
+                                education
+                                in the country. Therefore, managing the spread of virus in the country is very
+                                essential. In
+                                order to
+                                face and manage the situation, the best decisions has to be made, so an occurrence of
+                                another
+                                wave
+                                can be prevented. Gathering all the necessary data and representing them and providing
+                                valuable
+                                information in one place would make the process of necessary decision making much
+                                easier.
+                                With Covid-19 Pandemic Analytic Dashboard and Management System,</br> our main aim is to
+                                provide that and being beneficial to many related parties not only the general public.
+                            </p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    {%for title,description,image,url,publish in icon%}
+                    <div class="card text-dark bg-light mb-3 shadow p-3 mb-5 bg-body rounded">
+                        <div class="card-header"
+                             style="font-family:cursive; font-weight:800; font-size:40px;color:green;">
+                            Global News
+                        </div>
+                        {% if image is None %}
+                        <img src="{% static 'assets/img/deafult.jpg' %}" style="height:250px">
+                        {% else %}
+                        <img src="{{image}}" alt="image">
+                        {% endif %}
+                        <div class="card-body">
+                            <h4 class="card-text">{{title}}</h4>
+                            <p class="card-text"> {{description}}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-primary me-md-3"><a href="{{url}}"
+                                                                                             class="btn btn-primary stretched-link">View
+                                        more</a></button>
+                                    <button type="button" class="btn btn-primary"><a href="{%url 'news'%}"
+                                                                                     class="btn btn-primary stretched-link"><b>NEWS
+                                        FEED</b></a></button>
+                                </div>
+                                <small class="text-muted">{{publish}}</small>
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card" style="width: 18rem;">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk
+                                    of
+                                    the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- up description -->
+            <!-- test report -->
+            <section class="py-3 text-center container mt-5 mb-5 shadow " style="background-color:#f2f2f2;">
+                <div class="mt-2 mb-5">
+                    <div class="section-title color-two text-center mt-4 pb-2">
+                        <h3 class="sub-title wow pixFadeUp"
+                            style="font-family:cursive; font-weight:800; font-size:40px;color:green;">Covid
+                            situation</h3>
+                        <h2 class="title wow pixFadeUp" data-wow-delay="0.3s"
+                            style="font-family:cursive; font-weight:800; font-size:20px;color:green;"><i>
+                            Source from worldometer</i></h2>
+                    </div>
+                    <div class="row row-cols-1 row-cols-md-5 g-4 p-5">
+                        <div class="col">
+                            <div class="card text-dark bg-warning m-3 shadow " style="max-width: 15rem; height:120px;">
+                                <div class="card-body">
+                                    <h4 class="card-title">New Confirmed</h4>
+                                    <p class="card-text number">{{globalSummary.NewConfirmed}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card text-white bg-danger m-3 shadow" style="max-width: 15rem; height:120px;">
+                                <div class="card-body">
+                                    <h4 class="card-title">NewDeaths</h4>
+                                    <p class="card-text number">{{globalSummary.NewDeaths}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card text-white bg-secondary m-3 shadow" style="max-width: 15rem;height:120px;">
+                                <div class="card-body">
+                                    <h4 class="card-title">Total Deaths</h4>
+                                    <p class="card-text number">{{globalSummary.TotalDeaths}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card text-dark bg-info m-3 shadow" style="max-width: 15rem; height:120px;">
+                                <div class="card-body">
+                                    <h4 class="card-title">New Recovered</h4>
+                                    <p class="card-text number">{{globalSummary.NewRecovered}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card text-white bg-success m-3 shadow" style="max-width: 15rem; height:120px;">
+                                <div class="card-body">
+                                    <h4 class="card-title">Total Recovered</h4>
+                                    <p class="card-text number">{{globalSummary.TotalRecovered}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- test report -->
+            <!-- health guidlies -->
+            <div class="mb-4">
+                <section class="py-5 text-center container mt-5 mb-5 shadow-lg p-3 mb-5 bg-body rounded"
+                         style="background-color:#fff5cc;">
+                    <div class="row">
+                        <div class="col-lg-12 more-covid pt-1 pb-1">
+                            <div class="section-title color-two text-center pb-2 mb-3">
+                                <h3 class="sub-title wow pixFadeUp"
+                                    style="font-family:cursive; font-weight:800; font-size:40px;color:green;">Health
+                                    Guidlines</h3>
+                                <h2 class="title wow pixFadeUp" data-wow-delay="0.3s"
+                                    style="font-family:cursive; font-weight:800; font-size:20px;color:green;"><i>
+                                    Source from health government</i></h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-12  p-4">
+                            <div class="card mb-3 text-dark bg-warning  ">
+                                <div class="row g-0 shadow">
+                                    <div class="col-md-4">
+                                        <img src="{%static 'assets/img/n2.jpg'%}" class="img-fluid rounded-start"
+                                             alt="...">
+                                    </div>
+                                    <div class="col">
+                                        <div class="card-body">
+                                            <h1 class="card-title"><b>Are you ok?</b></h1><b>
+                                            <ul class="text-start mt-1" style="font-size:25px;">
+                                                <li>If you think you are sick ?</li>
+                                                <li>Protect yourself and others</li>
+                                                <li>Self quarantine/Home quarantine</li>
+                                                <li>Advices for people with special health needs</li>
+                                                <li>Living the new normal with COVID 19 (Videos)</li>
+                                            </ul>
+                                        </b>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-center mt-2">
+                            <div class="col text-center mt-4">
+                                <button type="button" class="btn btn-outline-success"
+                                        onclick="location.href='{%url 'guide'%}'"><b
+                                        style="font-size:30px">Read more about</b></button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- health guidlines -->
+
+            <section id="blog-grid" class="mt-5 mb-5 shadow" style="background-color:#b3d9ff;">
+                <div class="section-title color-two text-center mt-5 p-4">
+                    <h3 class="sub-title wow pixFadeUp"
+                        style="font-family:cursive; font-weight:800; font-size:40px;color:green;"> Local News
+                        &amp; Events</h3>
+                    <h2 class="title wow pixFadeUp" data-wow-delay="0.3s"
+                        style="font-family:cursive; font-weight:800; font-size:20px;color:green;"><i>
+                        Check out our News</i></h2>
+                </div>
+                <!-- calendar -->
+
+
+                <div class="row more-news-section mt-4 m-3">
+
+                    <div class="col-lg-4 col-md-6 ">
+                        <div class="card shadow p-3 mb-5 bg-body rounded" style="height:550px">
+                            <img src="https://hpb.health.gov.lk/news_images/1626353072.jpg">
+                            <div class="card-body">
+                                <ul class="post-meta">
+                                    <li>2021-07-15</li>
+                                </ul>
+                                <h4 class="card-title"> Know about Covid 19 vaccines</h4>
+                                <p class="card-text">Click to more information</p>
+                                <a href="https://www.hpb.health.gov.lk/en/news-single/22" class="btn btn-primary">Read
+                                    More</a>
+                            </div>
+                        </div>
+                    </div><!-- /.col-lg-4 col-md-6 -->
+                    <div class="col-lg-4 col-md-6 ">
+                        <div class="card shadow p-3 mb-5 bg-body rounded" style="height:550px">
+                            <img src="https://www.hpb.health.gov.lk/news_images/1620814375.jpg">
+                            <div class="card-body">
+                                <ul class="post-meta">
+                                    <li>2021-05-12</li>
+                                </ul>
+                                <h4 class="card-title"> Educational Videos</h4>
+                                <p class="card-text">Some quick example text to build on the card title and make up
+                                    the bulk of the card's content.</p>
+                                <a href="https://www.hpb.health.gov.lk/en/news-single/19" class="btn btn-primary">Read
+                                    More</a>
+                            </div>
+                        </div>
+                    </div><!-- /.col-lg-4 col-md-6 -->
+                    <div class="col-lg-4 col-md-6 ">
+                        <div class="card shadow p-3 mb-5 bg-body rounded" style="height:550px">
+                            <img src="https://www.hpb.health.gov.lk/news_images/1620793496.jpg">
+                            <div class="card-body">
+                                <ul class="post-meta">
+                                    <li>2021-05-11</li>
+                                </ul>
+                                <h4 class="card-title"> Lets stay safe</h4>
+                                <p class="card-text">Click to more information.</p>
+                                <a href="https://www.hpb.health.gov.lk/en/news-single/17" class="btn btn-primary">Read
+                                    More</a>
+                            </div>
+                        </div>
+                    </div><!-- /.col-lg-4 col-md-6 -->
+
+                    <div class="col-md-12 text-center mt-4 mb-5">
+                        <div class="col text-center mt-4">
+                            <button type="button" class="btn btn-outline-success"
+                                    onclick="location.href='{%url 'lnews'%}'"><b
+                                    style="font-size:30px">More News</b></button>
+                        </div>
+                    </div>
+                </div><!-- /.row -->
+            </section>
+
+
+        </div><!-- container -->
+        <!-- ------------------------------------------------------------------------------------ --->
+
+
+        <!-- Footer -->
+        <footer class="page-footer font-small  pt-4" style="background-color: #ffd633;">
+            <div class="container-fluid text-center text-md-left">
+                <div class="row">
+                    <div class="col">
+
+                        <!-- Content -->
+                        <h3><b>About us</b></h3>
+                        <p>Here you can use rows and columns to organize your footer content.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-copyright text-center py-3">© 2021 Copyright:
+                <h> MDBootstrap.com</h>
+            </div>
+
+        </footer>
+        <!-- Footer -->
+    </div>
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+</body>
+</html>
