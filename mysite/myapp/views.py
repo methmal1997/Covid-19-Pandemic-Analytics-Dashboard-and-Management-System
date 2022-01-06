@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import requests
+from  .models import Book1
 
 
 # Create your views here.
@@ -46,7 +47,11 @@ def news(request):
 
 
 def dashboard(request):
-    return render(request, 'Dashbord.html')
+    data = Book1.objects.all()
+    context = {
+        'data':data
+    }
+    return render(request, 'Dashbord.html',context)
 
 
 def covidtest(request):
