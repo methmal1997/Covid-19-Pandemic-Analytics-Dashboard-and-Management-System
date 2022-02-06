@@ -1,6 +1,12 @@
 from django.shortcuts import render
 import requests
-from  .models import Book1
+import pandas as pd
+from .models import Book1, Hospital_beds
+
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from .models import post
+from .forms import PostForm, EditForm
+from django.urls import reverse_lazy
 
 
 # Create your views here.
@@ -47,11 +53,23 @@ def news(request):
 
 
 def dashboard(request):
-    data = Book1.objects.all()
+    data = Book1.objects.all().values()
+    df = pd.DataFrame(data)
+    df1 = df.Name.tolist()
+    df2 = df['age'].tolist()
+    data1 = Hospital_beds.objects.all().values()
+    df0 = pd.DataFrame(data1)
+    df3 = df0.District.tolist()
+    df4 = df0['Number_of_beds_per_1000'].tolist()
     context = {
-        'data':data
+        'df1': df1,
+        'df2': df2,
+        'df3':df3,
+        'df4':df4,
+
     }
-    return render(request, 'Dashbord.html',context)
+
+    return render(request, 'Dashbord.html', context)
 
 
 def covidtest(request):
@@ -66,8 +84,33 @@ def vaccination(request):
     return render(request, 'vaccination.html')
 
 
-def fund(request):
-    return render(request, 'fund.html')
+class HomeView(ListView):
+    model = post
+    template_name = 'fund.html'
+    ordering = ['-post_date']
+
+
+class AddPost(CreateView):
+    model = post
+    form_class = PostForm
+    template_name = 'add_post.html'
+    # fields = '__all__'
+
+
+class UpdatePost(UpdateView):
+    model = post
+    form_class = EditForm
+    template_name = 'update_post.html'
+
+
+class DeletePost(DeleteView):
+    model = post
+    template_name = 'delete_post.html'
+    success_url = reverse_lazy('fund')
+
+
+# def fund(request):
+#     return render(request, 'fund.html')
 
 
 def world(request):

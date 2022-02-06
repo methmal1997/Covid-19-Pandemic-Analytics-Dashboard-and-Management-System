@@ -1,0 +1,25 @@
+{%extends 'base2.html' %}
+{% block mycontent%}
+{% load static %}
+
+<div class="row my-5"></div>
+<div class="container">
+    <div class="row mb-5 my-3 justify-content-center">
+        <div class="col-sm-5">
+            <h2>Register Here..........</h2>
+        </div>
+    </div>
+    <div class="row mx-2 justify-content-center">
+        <div class="col-sm-8">
+            <div class="form-group">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button>Register</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row my-3"></div>
+{% endblock %}

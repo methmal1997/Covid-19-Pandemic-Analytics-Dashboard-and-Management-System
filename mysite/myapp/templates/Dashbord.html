@@ -19,22 +19,46 @@
 {% load static %}
 {% block mycontent %}
 <main>
+    <section class="py-3 text-center container">
+        <div class="container pt-5 ">
+            <div class="px-3 text-center">
 
+                <h1 style="color:#6600cc" class="display-5 fw-bold">Covid-19 Pandemic Analytics Dashboard and Management
+                    System</h1>
+                <i>developed by uoc fos team</i>
+            </div>
+
+        </div>
+    </section>
     <section class="py-3 text-center container">
         <div class="row py-lg-5">
-            <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-light">dashboard</h1>
+            <div class="col-12 mx-auto">
+                <div style="width: 1300px; height: 2550px; overflow: hidden">
 
-                <canvas id="myChart" width="400" height="400"></canvas>
+                <iframe scrolling="no" style="border:none; width: 1300px; height:2750px;  overflow: hidden; position: relative; bottom:-2220px; top: -70px;"
+                                            src="https://app.powerbi.com/view?r=eyJrIjoiNmY5OWYxYmItNWI2Yy00OGJiLWE4YzYtMzU2OGQ4NzZiMWRkIiwidCI6IjQ5Y2ZjODY5LWMwYjAtNGY2OS05M2E5LWNjZjY2NjU2MmVkYSIsImMiOjEwfQ%3D%3D"></iframe>
+                </div>
+
+            </div>
+
+            <canvas id="myChart" width="400" height="400"></canvas>
+            <canvas id="myChart2" width="400" height="400"></canvas>
+
+
+
                 <script>
+                    var df1 = {{df1 | safe}}
+                    var df2 = {{df2 | safe}}
+                    var df3 = {{df3 | safe}}
+                    var df4 = {{df4 | safe}}
                     const ctx = document.getElementById('myChart').getContext('2d');
                     const myChart = new Chart(ctx, {
                         type: 'bar',
                         data: {
-                            labels: [{% for p in data %} '{{p.Name}}', {% endfor %} ],
+                            labels: df1,
                             datasets: [{
-                                label: '# of Votes',
-                                data: [{% for p in data %} '{{p.age}}', {% endfor %} ],
+                                label: 'sample',
+                                data: df2,
                                 backgroundColor: [
                                     'rgba(255, 99, 132, 0.2)',
                                     'rgba(54, 162, 235, 0.2)',
@@ -62,13 +86,50 @@
                             }
                         }
                     });
+                    const ctx2 = document.getElementById('myChart2').getContext('2d');
+                    const myChart2 = new Chart(ctx2, {
+                        type: 'bar',
+                        data: {
+                            labels: df3,
+                            datasets: [{
+                                label: 'Number of beds per 1000',
+                                data: df4,
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+
                 </script>
 
-
-            </div>
         </div>
     </section>
+
+
 </main>
+
 
 
 {%endblock%}
