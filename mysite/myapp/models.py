@@ -41,3 +41,17 @@ class post(models.Model):
 
     def get_absolute_url(self):
         return reverse('fund')
+
+
+class District(models.Model):
+    id = models.AutoField(primary_key=True)
+    District = models.CharField(max_length=30, default='', unique=True)
+    Cases = models.IntegerField(default='')
+    Recovered = models.IntegerField(default='')
+    Deaths = models.IntegerField(default='')
+
+    class Meta:
+        db_table = 'District'
+
+    def __str__(self):
+        return f'{self.District} | {self.Cases} | {self.Recovered} | {self.Deaths}'

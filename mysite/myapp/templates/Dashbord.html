@@ -40,10 +40,20 @@
                 </div>
 
             </div>
+            <div class="col-12">
+<!--                <canvas id="myChart"  height="400"></canvas>-->
 
-            <canvas id="myChart" width="400" height="400"></canvas>
-            <canvas id="myChart2" width="400" height="400"></canvas>
-
+            </div>
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 style="color:#6600cc" class="display-5 fw-bold">Vaccination</h1>
+                    <canvas id="myChart"  height="400"></canvas>
+                </div>
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 style="color:#6600cc" class="display-5 fw-bold">Hospital Beds</h1>
+                    <canvas id="myChart2"  height="400"></canvas>
+                </div>
+            </div>
 
 
                 <script>
@@ -53,27 +63,20 @@
                     var df4 = {{df4 | safe}}
                     const ctx = document.getElementById('myChart').getContext('2d');
                     const myChart = new Chart(ctx, {
-                        type: 'bar',
+                        type: 'pie',
                         data: {
                             labels: df1,
                             datasets: [{
                                 label: 'sample',
                                 data: df2,
                                 backgroundColor: [
-                                    'rgba(255, 99, 132, 0.2)',
-                                    'rgba(54, 162, 235, 0.2)',
-                                    'rgba(255, 206, 86, 0.2)',
-                                    'rgba(75, 192, 192, 0.2)',
-                                    'rgba(153, 102, 255, 0.2)',
-                                    'rgba(255, 159, 64, 0.2)'
+                                    'rgba(236, 183, 16, 0.8)',
+                                    'rgba(37, 176, 64, 0.8)',
+                                    'rgba(43, 51, 144, 0.8)',
+                                    'rgba(192, 64, 32, 0.8)'
                                 ],
                                 borderColor: [
-                                    'rgba(255, 99, 132, 1)',
-                                    'rgba(54, 162, 235, 1)',
-                                    'rgba(255, 206, 86, 1)',
-                                    'rgba(75, 192, 192, 1)',
-                                    'rgba(153, 102, 255, 1)',
-                                    'rgba(255, 159, 64, 1)'
+                                    'rgba(6, 8, 25, 0.8)'
                                 ],
                                 borderWidth: 1
                             }]
@@ -95,20 +98,10 @@
                                 label: 'Number of beds per 1000',
                                 data: df4,
                                 backgroundColor: [
-                                    'rgba(255, 99, 132, 0.2)',
-                                    'rgba(54, 162, 235, 0.2)',
-                                    'rgba(255, 206, 86, 0.2)',
-                                    'rgba(75, 192, 192, 0.2)',
-                                    'rgba(153, 102, 255, 0.2)',
-                                    'rgba(255, 159, 64, 0.2)'
+                                    'rgba(14, 58, 96, 0.8)'
                                 ],
                                 borderColor: [
-                                    'rgba(255, 99, 132, 1)',
-                                    'rgba(54, 162, 235, 1)',
-                                    'rgba(255, 206, 86, 1)',
-                                    'rgba(75, 192, 192, 1)',
-                                    'rgba(153, 102, 255, 1)',
-                                    'rgba(255, 159, 64, 1)'
+                                    'rgba(255, 99, 132, 1)'
                                 ],
                                 borderWidth: 1
                             }]

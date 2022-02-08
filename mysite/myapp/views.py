@@ -7,7 +7,7 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import post
 from .forms import PostForm, EditForm
 from django.urls import reverse_lazy
-
+from .models import District
 
 # Create your views here.
 def index2(request):
@@ -64,8 +64,8 @@ def dashboard(request):
     context = {
         'df1': df1,
         'df2': df2,
-        'df3':df3,
-        'df4':df4,
+        'df3': df3,
+        'df4': df4,
 
     }
 
@@ -151,3 +151,9 @@ def temp(request):
 
 def info(request):
     return render(request, 'info.html')
+
+
+def sl(request):
+    st=District.objects.all() # Collect all records from table
+    return render(request,'local.html',{'st':st})
+
